@@ -1,17 +1,11 @@
 import streamlit as st
 from PIL import Image
 import os
-import base64
+from streamlit_pdf_viewer import pdf_viewer
 
 # --- Function to display PDF ---
 def show_pdf(file_path):
-    with open(file_path, "rb") as f:
-        base64_pdf = base64.b64encode(f.read()).decode("utf-8")
-    pdf_display = f"""
-        <iframe src="data:application/pdf;base64,{base64_pdf}" 
-        width="100%" height="800px" type="application/pdf"></iframe>
-    """
-    st.markdown(pdf_display, unsafe_allow_html=True)
+    pdf_viewer(file_path)
 
 # 1. Configure the web page
 st.set_page_config(layout="wide", page_title="Cartographie Portage à Domicile")
@@ -79,12 +73,12 @@ col1, col2 = st.columns([1, 1])
 with col1:
     st.subheader("Carte des territoires")
     
-    main_map_path = "carte1.png"  # ⚠️ keep filename simple
+    main_map_path = "carte1.png"
     
     if os.path.exists(main_map_path):
         st.image(main_map_path, use_container_width=True)
     else:
-        st.warning(f"⚠️ Image de la carte introuvable : '{main_map_path}'")
+        st.warning(f"⚠️ Image introuvable : '{main_map_path}'")
 
     st.markdown("### 🔍 Sélectionnez une région :")
     selected_region = st.selectbox(
