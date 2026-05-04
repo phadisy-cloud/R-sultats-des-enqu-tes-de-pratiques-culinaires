@@ -34,10 +34,10 @@ regions = {
         "Pont-du-Chateau2.png",
         "Pont-du-Chateau.pdf"
     ],
-    "Montagne-dôme-sancy": [
-        "Montagne-Dome-Sancy1.png",
-        "Montagne-Dome-Sancy2.png",
-        "Montagne-dôme-sancy.pdf"
+    "ComCom Dôme Sancy Artense": [
+        "ComCom-Dôme Sancy-Artense1.png",
+        "ComCom-Dôme Sancy-Artense2.png",
+        "ComCom-Dôme Sancy-Artense.pdf"
     ],
     "Beaumont": [
         "beaumont1.png",
