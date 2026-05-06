@@ -47,12 +47,12 @@ regions = {
     "Billom": [
         "billom1.png",
         "billom2.png",
-        "billom.pdf"
+        "Billom.pdf"
     ],
     "Ceyrat": [
         "ceyrat1.png",
         "ceyrat2.png",
-        "ceyrat.pdf"
+        "Ceyrat.pdf"
     ],
     "Etap-Auvergne": [
         "etap-auvergne1.png",
