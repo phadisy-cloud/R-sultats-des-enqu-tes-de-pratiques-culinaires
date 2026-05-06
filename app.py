@@ -40,9 +40,9 @@ regions = {
         "ComCom-Dôme Sancy-Artense.pdf"
     ],
     "Beaumont": [
-        "beaumont1.png",
+        "Beaumont1.png",
         "beaumont2.png",
-        "beaumont.pdf"
+        "Beaumont.pdf"
     ],
     "Billom": [
         "billom1.png",
