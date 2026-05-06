@@ -30,9 +30,9 @@ regions = {
     ],
     
     "CCAS Pont-du-Château": [
-        "Pont-du-Chateau1.png",
-        "Pont-du-Chateau2.png",
-        "Pont-du-Chateau.pdf"
+        "Pont-du-chateau1.png",
+        "Pont-du-chateau2.png",
+        "Pont-du-chateau.pdf"
     ],
     "ComCom Dôme Sancy Artense": [
         "ComCom-Dôme Sancy-Artense1.png",
