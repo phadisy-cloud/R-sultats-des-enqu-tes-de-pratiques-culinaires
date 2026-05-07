@@ -69,7 +69,7 @@ regions = {
         "mondarverne2.png",
         "mondarverne.pdf"
     ],
-     "Aubiere": [
+     "CCAS Aubiere": [
         "Aubiere1.png",
         "Aubiere2.png",
         "Aubiere.pdf"
