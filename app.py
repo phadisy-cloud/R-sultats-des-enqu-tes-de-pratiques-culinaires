@@ -64,7 +64,7 @@ regions = {
         "etap-auvergne2.png",
         "etap-auvergne.pdf"
     ],
-    "Mond'Arverne Communaute": [
+    "Mond'Arverne Communauté": [
         "mondarverne1.png",
         "mondarverne2.png",
         "mondarverne.pdf"
