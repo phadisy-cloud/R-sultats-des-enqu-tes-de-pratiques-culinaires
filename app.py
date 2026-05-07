@@ -63,7 +63,7 @@ regions = {
         "mondarverne1.png",
         "mondarverne2.png",
         "mondarverne.pdf"
-    ]
+    ],
      "Sivu-Aubiere-Romagnat-CCAS": [
         "Sivu-Aubiere-Romagnat-CCAS1.png",
         "Sivu-Aubiere-Romagnat-CCAS2.png",
