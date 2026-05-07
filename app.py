@@ -49,7 +49,7 @@ regions = {
         "beaumont2.png",
         "Beaumont.pdf"
     ],
-    "Billom": [
+    "SIVOS de Billom": [
         "billom1.png",
         "billom2.png",
         "Billom.pdf"
