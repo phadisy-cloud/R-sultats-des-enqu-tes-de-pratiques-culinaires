@@ -44,7 +44,7 @@ regions = {
         "Cebazat-SISPA2.png",
         "Cebazat-SISPA.pdf"
     ],
-    "Beaumont": [
+    "CCAS Beaumont": [
         "Beaumont1.png",
         "beaumont2.png",
         "Beaumont.pdf"
