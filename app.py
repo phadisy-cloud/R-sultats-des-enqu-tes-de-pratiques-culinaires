@@ -13,7 +13,7 @@ st.title("Cartographie des communes - Portage à domicile")
 
 # 2. Define the regions and their respective files (PNG + PDF)
 regions = {
-    "Ambert": [
+    "Com.Com. Ambert": [
         "ambert1.png",
         "ambert2.png",
         "ambert.pdf"
