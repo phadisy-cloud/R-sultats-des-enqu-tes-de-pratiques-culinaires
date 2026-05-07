@@ -54,7 +54,7 @@ regions = {
         "billom2.png",
         "Billom.pdf"
     ],
-    "Ceyrat": [
+    "Ceyrat Pôle Social et Proximité": [
         "ceyrat1.png",
         "ceyrat2.png",
         "Ceyrat.pdf"
