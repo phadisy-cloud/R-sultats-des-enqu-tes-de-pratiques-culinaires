@@ -23,7 +23,7 @@ regions = {
         "thiers2.png",
         "thiers.pdf"
     ],
-     "Clermont-Ferrand": [
+     "CCAS Clermont-Ferrand": [
         "Clermont-Ferrand1.png",
         "Clermont-Ferrand2.png",
         "Clermont-Ferrand.pdf"
