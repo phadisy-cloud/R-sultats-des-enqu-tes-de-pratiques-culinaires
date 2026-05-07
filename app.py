@@ -64,6 +64,11 @@ regions = {
         "mondarverne2.png",
         "mondarverne.pdf"
     ]
+     "Sivu-Aubiere-Romagnat-CCAS": [
+        "Sivu-Aubiere-Romagnat-CCAS1.png",
+        "Sivu-Aubiere-Romagnat-CCAS2.png",
+        "Sivu-Aubiere-Romagnat-CCAS.pdf"
+    ],
 }
 
 # 3. Create a split layout
