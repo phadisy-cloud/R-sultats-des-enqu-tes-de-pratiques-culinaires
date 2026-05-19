@@ -37,7 +37,7 @@ regions = {
     "Com.Com. Dômes Sancy Artense": [
         "ComCom-Dôme Sancy-Artense1.png",
         "Domes Sancy Artense.png",
-        "ComCom-Dôme Sancy-Artense.pdf"
+        "ComCom-Dômes Sancy-Artense.pdf"
     ],
      " Cebazat-SISPA": [
         "Cebazat-SISPA1.png",
