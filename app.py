@@ -74,6 +74,16 @@ regions = {
         "Aubiere2.png",
         "Aubiere.pdf"
     ],
+    "SIVOM de la Vallée de l’Anse": [
+        "SIVOM de la Vallée de l’Anse1.png",
+        "SIVOM de la Vallée de l’Anse.png",
+        "SIVOM de la Vallée de l’Anse.pdf"
+    ],
+     "Com.Com. Chavanon Combrailles et Volcans Pontaumur": [
+        "Com.Com. Chavanon Combrailles et Volcans Pontaumur1.png",
+        "Com.Com. Chavanon Combrailles et Volcans Pontaumur.png",
+        "Com.Com. Chavanon Combrailles et Volcans Pontaumur.pdf"
+    ],
 }
 
 # 3. Create a split layout
