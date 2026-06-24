@@ -16,78 +16,78 @@ regions = {
     "Com.Com. Ambert": [
         "ambert1.png",
         "ambert2.png",
-        "ambert.pdf"
+        "ambert.pdf",
     ],
     "AVT Thiers": [
         "thiers1.png",
         "thiers2.png",
-        "thiers.pdf"
+        "thiers.pdf",
     ],
      "CCAS Clermont-Ferrand": [
         "Clermont-Ferrand1.png",
         "Clermont-Ferrand2.png",
-        "Clermont-Ferrand.pdf"
+        "Clermont-Ferrand.pdf",
     ],
     
     "CCAS Pont-du-Château": [
         "Pont-du-chateau1.png",
         "Pont-du-chateau2.png",
-        "Pont-du-chateau.pdf"
+        "Pont-du-chateau.pdf",
     ],
     "Com.Com. Dômes Sancy Artense": [
         "ComCom-Dôme Sancy-Artense1.png",
         "Domes Sancy Artense.png",
-        "ComCom-Dômes Sancy-Artense.pdf"
+        "ComCom-Dômes Sancy-Artense.pdf",
     ],
      " Cebazat-SISPA": [
         "Cebazat-SISPA1.png",
         "Cebazat-SISPA2.png",
-        "Cebazat-SISPA.pdf"
+        "Cebazat-SISPA.pdf",
     ],
     "CCAS Beaumont": [
         "Beaumont1.png",
         "beaumont2.png",
-        "beaumont.pdf"
+        "beaumont.pdf",
     ],
     "CiAS Riom Limagne et Volcans": [
         "CiAS Riom Limagne et Volcans1.png",
         "CiAS Riom Limagne et Volcans2.png",
-        "CiAS Riom Limagne et Volcans.pdf"
+        "CiAS Riom Limagne et Volcans.pdf",
     ],
     "SIVOS de Billom": [
         "billom1.png",
         "billom2.png",
-        "Billom.pdf"
+        "Billom.pdf",
     ],
     "Ceyrat Pôle Social et Proximité": [
         "ceyrat1.png",
         "ceyrat2.png",
-        "Ceyrat.pdf"
+        "Ceyrat.pdf",
     ],
     "Etap-Auvergne 43": [
         "etap-auvergne1.png",
         "etap-auvergne2.png",
-        "etap-auvergne.pdf"
+        "etap-auvergne.pdf",
     ],
     "Mond'Arverne Communauté": [
         "mondarverne1.png",
         "mondarverne2.png",
-        "mondarverne.pdf"
+        "mondarverne.pdf",
     ],
      "CCAS Aubiere": [
         "Aubiere1.png",
         "Aubiere2.png",
-        "Aubiere.pdf"
+        "Aubiere.pdf",
     ],
     "SIVOM de la Vallée de l’Anse": [
         "SIVOM de la Vallée de l’Anse1.png",
         "SIVOM de la Vallée de l’Anse.png",
-        "SIVOM de la Vallée de l’Anse.pdf"
+        "SIVOM de la Vallée de l’Anse.pdf",
     ],
      "Com.Com. Chavanon Combrailles et Volcans Pontaumur": [
         "Com.Com. Chavanon Combrailles et Volcans Pontaumur1.png",
         "Com.Com. Chavanon Combrailles et Volcans Pontaumur.png",
-        "Com.Com. Chavanon Combrailles et Volcans Pontaumur.pdf"
+        "Com.Com. Chavanon Combrailles et Volcans Pontaumur.pdf",
     ],
 }
 
