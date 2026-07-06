@@ -51,7 +51,7 @@ regions = {
     ],
     "CIAS Riom Limagne et Volcans": [
         "CIAS Riom Limagne et Volcans1.png",
-        "CIAS Riom Limagne et Volcans2.png",
+        "CIAS Riom Limagne et Volcans.png",
         "CIAS Riom Limagne et Volcans.pdf",
     ],
     "SIVOS de Billom": [
