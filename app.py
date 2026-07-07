@@ -114,7 +114,7 @@ with col_select:
 st.markdown("---") # Visual separator
 
 # ==============================================================================
-# LINE 2: Geographical Region Map (Left) and Infographics/PDF (Right)
+# LINE 2: Geographical Region Map (Left) and Infographics/PDF + Améliorer (Right)
 # ==============================================================================
 col_geo, col_info = st.columns([1, 1])
 file_paths = regions[selected_region]
@@ -133,7 +133,7 @@ with col_geo:
     else:
         st.warning("⚠️ Aucune carte disponible pour cette région.")
 
-# Right column of Line 2: Infographic (2nd PNG) or PDF viewer
+# Right column of Line 2: Infographic (2nd PNG) AND/OR PDF viewer + ameliorer.png next to it
 with col_info:
     st.subheader("Infographies & Documents")
     
@@ -142,34 +142,30 @@ with col_info:
         infographic = Image.open(png_files[1])
         st.image(infographic, use_container_width=True, caption="Données infographiques")
     
-    # Render the PDF right below or as the primary element if 2nd PNG is missing
+    # Render PDF viewer
     if pdf_files:
         st.markdown("**Document PDF associé :**")
         show_pdf(pdf_files[0])
     elif len(png_files) <= 1 and not pdf_files:
         st.info("Aucune infographie additionnelle ou PDF disponible.")
-
-st.markdown("---") # Visual separator
-
-# ==============================================================================
-# LINE 3: Persistent Image (ameliorer.png) (Left) + Verbatim Text Block (Right)
-# ==============================================================================
-col_bottom_img, col_bottom_text = st.columns([1, 1])
-
-# Left Side: The "ameliorer.png" image (now bounded by the column width so it's not huge)
-with col_bottom_img:
-    st.subheader("Informations Générales")
+    
+    # NEW LOCATION: ameliorer.png renders right under/next to the PDF inside this column context
+    st.markdown("---")
+    st.markdown("#### Informations Générales / Améliorations")
     always_visible_map = "ameliorer.png" 
     if os.path.exists(always_visible_map):
         st.image(always_visible_map, use_container_width=True)
     else:
         st.warning(f"⚠️ Image permanente introuvable : '{always_visible_map}'")
 
-# Right Side: Verbatim box
-with col_bottom_text:
-    st.subheader("💬 Verbatim / Remarques")
-    st.info(
-        """
-        Insérez votre texte verbatim ici. Ce bloc s'affichera à droite de l'image.
-        """
-    )
+st.markdown("---") # Visual separator
+
+# ==============================================================================
+# LINE 3: Verbatim Text Block (Spanning across the bottom cleanly)
+# ==============================================================================
+st.subheader("💬 Verbatim / Remarques")
+st.info(
+    """
+    Insérez votre texte verbatim ici. Ce bloc reste visible en permanence tout en bas de la page.
+    """
+)
