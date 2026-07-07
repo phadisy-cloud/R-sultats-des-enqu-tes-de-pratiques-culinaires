@@ -120,24 +120,37 @@ png_files = [f for f in valid_files if f.lower().endswith(".png")]
 pdf_files = [f for f in valid_files if f.lower().endswith(".pdf")]
 
 # ==============================================================================
-# ROW 2: Geographical Region Map (Full Width - Large and readable)
+# ROW 2: Geographical Region Map (Left) & Infographic PNG (Right)
 # ==============================================================================
-st.subheader(f"Carte géographique de la région : {selected_region}")
-if png_files:
-    region_map = Image.open(png_files[0])
-    st.image(region_map, use_container_width=True)
-else:
-    st.warning("⚠️ Aucune carte disponible pour cette région.")
+col_geo, col_info = st.columns([1, 1])
+
+# Left Side: The primary geographical regional map
+with col_geo:
+    st.subheader(f"Carte géographique : {selected_region}")
+    if png_files:
+        region_map = Image.open(png_files[0])
+        st.image(region_map, use_container_width=True)
+    else:
+        st.warning("⚠️ Aucune carte disponible pour cette région.")
+
+# Right Side: The infographic layout (the 2nd regional PNG file)
+with col_info:
+    st.subheader("Données Infographiques")
+    if len(png_files) > 1:
+        infographic = Image.open(png_files[1])
+        st.image(infographic, use_container_width=True)
+    else:
+        st.info("ℹ️ Pas d'infographie additionnelle au format image pour cette région.")
 
 st.markdown("---") # Visual separator
 
 # ==============================================================================
-# ROW 3: Améliorer PNG (Left) and PDF/Infographics Documents (Right) - Half-Half Split
+# ROW 3: Améliorer PNG (Left) and PDF Document Viewer (Right)
 # ==============================================================================
-col_bottom_left, col_bottom_right = st.columns([1, 1])
+col_ameliorer, col_pdf = st.columns([1, 1])
 
-# Left Side: Améliorer image
-with col_bottom_left:
+# Left Side: Persistent Améliorer Image
+with col_ameliorer:
     st.subheader("Informations Générales / Améliorations")
     always_visible_map = "ameliorer.png" 
     if os.path.exists(always_visible_map):
@@ -145,21 +158,14 @@ with col_bottom_left:
     else:
         st.warning(f"⚠️ Image permanente introuvable : '{always_visible_map}'")
 
-# Right Side: Regional Documents & PDF Viewer
-with col_bottom_right:
-    st.subheader("Documents & Analyses")
-    
-    # If there's a second regional infographic image, show it here
-    if len(png_files) > 1:
-        infographic = Image.open(png_files[1])
-        st.image(infographic, use_container_width=True, caption="Données infographiques additionnelles")
-    
-    # Render PDF viewer
+# Right Side: PDF Document Renderer
+with col_pdf:
+    st.subheader("Document PDF")
     if pdf_files:
         st.markdown("**Visualisation du Document PDF :**")
         show_pdf(pdf_files[0])
-    elif len(png_files) <= 1 and not pdf_files:
-        st.info("Aucun document PDF associé disponible pour cette région.")
+    else:
+        st.info("ℹ️ Aucun document PDF associé disponible pour cette région.")
 
 st.markdown("---") # Visual separator
 
