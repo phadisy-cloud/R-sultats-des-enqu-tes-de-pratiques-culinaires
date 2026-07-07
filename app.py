@@ -114,7 +114,7 @@ with col_select:
 st.markdown("---") # Visual separator
 
 # ==============================================================================
-# LINE 2: Geographical Region Map (Left) and Infographics/PDF + Améliorer (Right)
+# LINE 2: Geographical Region Map (Left) and (Améliorer + Infographics/PDF) (Right)
 # ==============================================================================
 col_geo, col_info = st.columns([1, 1])
 file_paths = regions[selected_region]
@@ -124,7 +124,7 @@ valid_files = [f for f in file_paths if os.path.exists(f)]
 png_files = [f for f in valid_files if f.lower().endswith(".png")]
 pdf_files = [f for f in valid_files if f.lower().endswith(".pdf")]
 
-# Left column of Line 2: The Map of the specific region (1st PNG)
+# Left side of Line 2: The geographical map of the chosen region
 with col_geo:
     st.subheader(f"Carte géographique : {selected_region}")
     if png_files:
@@ -133,35 +133,40 @@ with col_geo:
     else:
         st.warning("⚠️ Aucune carte disponible pour cette région.")
 
-# Right column of Line 2: Infographic (2nd PNG) AND/OR PDF viewer + ameliorer.png next to it
+# Right side of Line 2: Split layout for Améliorer (Left) and Infographics/PDF (Right)
 with col_info:
     st.subheader("Infographies & Documents")
     
-    # If there's a second PNG, use it as the infographic
-    if len(png_files) > 1:
-        infographic = Image.open(png_files[1])
-        st.image(infographic, use_container_width=True, caption="Données infographiques")
+    # Create an internal 50/50 split right here
+    sub_col_left, sub_col_right = st.columns([1, 1])
     
-    # Render PDF viewer
-    if pdf_files:
-        st.markdown("**Document PDF associé :**")
-        show_pdf(pdf_files[0])
-    elif len(png_files) <= 1 and not pdf_files:
-        st.info("Aucune infographie additionnelle ou PDF disponible.")
-    
-    # NEW LOCATION: ameliorer.png renders right under/next to the PDF inside this column context
-    st.markdown("---")
-    st.markdown("#### Informations Générales / Améliorations")
-    always_visible_map = "ameliorer.png" 
-    if os.path.exists(always_visible_map):
-        st.image(always_visible_map, use_container_width=True)
-    else:
-        st.warning(f"⚠️ Image permanente introuvable : '{always_visible_map}'")
+    # Left Half: ameliorer.png
+    with sub_col_left:
+        st.markdown("**Informations Générales**")
+        always_visible_map = "ameliorer.png" 
+        if os.path.exists(always_visible_map):
+            st.image(always_visible_map, use_container_width=True)
+        else:
+            st.warning(f"⚠️ Image permanente introuvable : '{always_visible_map}'")
+            
+    # Right Half: 2nd Infographic PNG or the PDF Viewer
+    with sub_col_right:
+        # If there's a second PNG, show it here
+        if len(png_files) > 1:
+            infographic = Image.open(png_files[1])
+            st.image(infographic, use_container_width=True, caption="Données infographiques")
+        
+        # Render PDF viewer
+        if pdf_files:
+            st.markdown("**Document PDF associé :**")
+            show_pdf(pdf_files[0])
+        elif len(png_files) <= 1 and not pdf_files:
+            st.info("Aucun document additionnel disponible.")
 
 st.markdown("---") # Visual separator
 
 # ==============================================================================
-# LINE 3: Verbatim Text Block (Spanning across the bottom cleanly)
+# LINE 3: Verbatim Text Block (Spanning cleanly across the full bottom width)
 # ==============================================================================
 st.subheader("💬 Verbatim / Remarques")
 st.info(
