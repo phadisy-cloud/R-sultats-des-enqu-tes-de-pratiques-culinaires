@@ -28,7 +28,6 @@ regions = {
         "Clermont-Ferrand2.png",
         "Clermont-Ferrand.pdf",
     ],
-    
     "CCAS Pont-du-Château": [
         "Pont-du-chateau1.png",
         "Pont-du-chateau2.png",
@@ -91,46 +90,85 @@ regions = {
     ],
 }
 
-# 3. Create a split layout
-col1, col2 = st.columns([1, 1])
+# ==============================================================================
+# LINE 1: Main Map (Left) and Region Selection (Right)
+# ==============================================================================
+col_map, col_select = st.columns([1, 1])
 
-# LEFT COLUMN
-with col1:
+with col_map:
     st.subheader("Carte des territoires")
-    
     main_map_path = "carte1.png"
-    
     if os.path.exists(main_map_path):
         st.image(main_map_path, use_container_width=True)
     else:
         st.warning(f"⚠️ Image introuvable : '{main_map_path}'")
 
+with col_select:
     st.markdown("### 🔍 Sélectionnez une région :")
     selected_region = st.selectbox(
-        "Choisissez une région :", 
+        "Choisissez une région dans la liste ci-dessous :", 
         list(regions.keys())
     )
+    st.write(f"Région active : **{selected_region}**")
 
-# RIGHT COLUMN
-with col2:
-    st.subheader(f"Infographies : {selected_region}")
+st.markdown("---") # Visual separator
+
+# ==============================================================================
+# LINE 2: Geographical Region Map (Left) and Infographics/PDF (Right)
+# ==============================================================================
+col_geo, col_info = st.columns([1, 1])
+file_paths = regions[selected_region]
+
+# Filter valid, existing files for processing
+valid_files = [f for f in file_paths if os.path.exists(f)]
+png_files = [f for f in valid_files if f.lower().endswith(".png")]
+pdf_files = [f for f in valid_files if f.lower().endswith(".pdf")]
+
+# Left column of Line 2: The Map of the specific region (1st PNG)
+with col_geo:
+    st.subheader(f"Carte géographique : {selected_region}")
+    if png_files:
+        region_map = Image.open(png_files[0])
+        st.image(region_map, use_container_width=True, caption=f"Plan de {selected_region}")
+    else:
+        st.warning("⚠️ Aucune carte disponible pour cette région.")
+
+# Right column of Line 2: Infographic (2nd PNG) or PDF viewer
+with col_info:
+    st.subheader("Infographies & Documents")
     
-    file_paths = regions[selected_region]
+    # If there's a second PNG, use it as the infographic
+    if len(png_files) > 1:
+        infographic = Image.open(png_files[1])
+        st.image(infographic, use_container_width=True, caption="Données infographiques")
+    
+    # Render the PDF right below or as the primary element if 2nd PNG is missing
+    if pdf_files:
+        st.markdown("**Document PDF associé :**")
+        show_pdf(pdf_files[0])
+    elif len(png_files) <= 1 and not pdf_files:
+        st.info("Aucune infographie additionnelle ou PDF disponible.")
 
-    for file_path in file_paths:
-        if os.path.exists(file_path):
+st.markdown("---") # Visual separator
 
-            # PNG display
-            if file_path.lower().endswith(".png"):
-                img = Image.open(file_path)
-                st.image(img, use_container_width=True)
+# ==============================================================================
+# LINE 3: Persistent Image (ameliorer.png) + Verbatim text block
+# ==============================================================================
+st.subheader("Informations Générales & Verbatim")
 
-            # PDF display
-            elif file_path.lower().endswith(".pdf"):
-                show_pdf(file_path)
+# Persistent map file
+always_visible_map = "ameliorer.png" 
 
-            else:
-                st.warning(f"Format non supporté : {file_path}")
+if os.path.exists(always_visible_map):
+    st.image(always_visible_map, use_container_width=True)
+else:
+    st.warning(f"⚠️ Image permanente introuvable : '{always_visible_map}'")
 
-        else:
-            st.error(f"⚠️ Fichier introuvable : '{file_path}'")
+# Verbatim Block
+st.markdown("### 💬 Verbatim / Remarques")
+st.info(
+    """
+    Insérez votre texte verbatim ici. Ce bloc reste visible en permanence 
+    tout en bas de la page, juste en dessous de l'image 'ameliorer.png'.
+    """
+)
