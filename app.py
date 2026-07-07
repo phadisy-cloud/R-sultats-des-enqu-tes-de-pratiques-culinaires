@@ -152,23 +152,24 @@ with col_info:
 st.markdown("---") # Visual separator
 
 # ==============================================================================
-# LINE 3: Persistent Image (ameliorer.png) + Verbatim text block
+# LINE 3: Persistent Image (ameliorer.png) (Left) + Verbatim Text Block (Right)
 # ==============================================================================
-st.subheader("Informations Générales & Verbatim")
+col_bottom_img, col_bottom_text = st.columns([1, 1])
 
-# Persistent map file
-always_visible_map = "ameliorer.png" 
+# Left Side: The "ameliorer.png" image (now bounded by the column width so it's not huge)
+with col_bottom_img:
+    st.subheader("Informations Générales")
+    always_visible_map = "ameliorer.png" 
+    if os.path.exists(always_visible_map):
+        st.image(always_visible_map, use_container_width=True)
+    else:
+        st.warning(f"⚠️ Image permanente introuvable : '{always_visible_map}'")
 
-if os.path.exists(always_visible_map):
-    st.image(always_visible_map, use_container_width=True)
-else:
-    st.warning(f"⚠️ Image permanente introuvable : '{always_visible_map}'")
-
-# Verbatim Block
-st.markdown("### 💬 Verbatim / Remarques")
-st.info(
-    """
-    Insérez votre texte verbatim ici. Ce bloc reste visible en permanence 
-    tout en bas de la page, juste en dessous de l'image 'ameliorer.png'.
-    """
-)
+# Right Side: Verbatim box
+with col_bottom_text:
+    st.subheader("💬 Verbatim / Remarques")
+    st.info(
+        """
+        Insérez votre texte verbatim ici. Ce bloc s'affichera à droite de l'image.
+        """
+    )
