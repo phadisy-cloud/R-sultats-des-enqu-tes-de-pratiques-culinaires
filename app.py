@@ -145,36 +145,23 @@ with col_info:
 st.markdown("---") # Visual separator
 
 # ==============================================================================
-# ROW 3: Améliorer PNG (Left) and PDF Document Viewer (Right)
+# ROW 3: Améliorer PNG (Left) and Verbatim/PDF Document Container (Right)
 # ==============================================================================
-col_ameliorer, col_pdf = st.columns([1, 1])
+col_ameliorer, col_pdf_verbatim = st.columns([1, 1])
 
-# Left Side: Persistent Améliorer Image
+# Left Side: Persistent Améliorer Image without the old extra titles
 with col_ameliorer:
-    st.subheader("Informations Générales / Améliorations")
     always_visible_map = "ameliorer.png" 
     if os.path.exists(always_visible_map):
         st.image(always_visible_map, use_container_width=True)
     else:
         st.warning(f"⚠️ Image permanente introuvable : '{always_visible_map}'")
 
-# Right Side: PDF Document Renderer
-with col_pdf:
-    st.subheader("Document PDF")
+# Right Side: PDF displaying directly inside the Verbatim block framework
+with col_pdf_verbatim:
+    st.subheader("💬 Verbatim / Documents")
     if pdf_files:
-        st.markdown("**Visualisation du Document PDF :**")
-        show_pdf(pdf_files[0])
+        with st.container(border=True): # Gives it a clean frame matching your image look
+            show_pdf(pdf_files[0])
     else:
         st.info("ℹ️ Aucun document PDF associé disponible pour cette région.")
-
-st.markdown("---") # Visual separator
-
-# ==============================================================================
-# ROW 4: Verbatim Text Block (Full Width at the absolute bottom)
-# ==============================================================================
-st.subheader("💬 Verbatim / Remarques")
-st.info(
-    """
-    Insérez votre texte verbatim ici. Ce bloc reste visible en permanence tout en bas de la page.
-    """
-)
