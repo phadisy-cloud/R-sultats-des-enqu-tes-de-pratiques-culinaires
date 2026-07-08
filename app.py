@@ -88,6 +88,16 @@ regions = {
         "Com.Com. Chavanon Combrailles et Volcans.png",
         "Com.Com. Chavanon Combrailles et Volcans Pontaumur.pdf",
     ],
+     "Com.Com. Massif du Sancy": [
+        "Com.Com. Massif du Sancy1.png",
+        "Com.Com. Massif du Sancy.png",
+        "Com.Com. Massif du Sancy.pdf",
+    ],
+     "EURL Etang de Montmazot": [
+        "EURL Etang de Montmazot1.png",
+        "EURL Etang de Montmazot.png",
+        "EURL Etang de Montmazot.pdf",
+    ],
 }
 
 # ==============================================================================
