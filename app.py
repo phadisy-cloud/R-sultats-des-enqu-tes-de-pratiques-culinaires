@@ -11,7 +11,7 @@ def show_pdf(file_path):
 st.set_page_config(layout="wide", page_title="Cartographie Portage à Domicile")
 st.title("Cartographie des communes - Portage à domicile")
 
-# 2. Define the regions and their respective files (PNG + PDF)
+# 2. Defining the regions and their respective files (PNG + PDF)
 regions = {
     "Com.Com. Ambert": [
         "ambert1.png",
@@ -100,9 +100,9 @@ regions = {
     ],
 }
 
-# ==============================================================================
-# ROW 1: Main Map (Left) and Region Selection (Right)
-# ==============================================================================
+
+# ROW 1: Main Map and Region Selection 
+
 col_map, col_select = st.columns([1, 1])
 
 with col_map:
@@ -123,15 +123,14 @@ with col_select:
 
 st.markdown("---") # Visual separator
 
-# Extract valid files for processing
+# Extracting valid files for processing
 file_paths = regions[selected_region]
 valid_files = [f for f in file_paths if os.path.exists(f)]
 png_files = [f for f in valid_files if f.lower().endswith(".png")]
 pdf_files = [f for f in valid_files if f.lower().endswith(".pdf")]
 
-# ==============================================================================
-# ROW 2: Geographical Region Map (Left) & Infographic PNG (Right)
-# ==============================================================================
+# ROW 2: Geographical Region Map & Infographic
+
 col_geo, col_info = st.columns([1, 1])
 
 # Left Side: The primary geographical regional map
@@ -154,9 +153,9 @@ with col_info:
 
 st.markdown("---") # Visual separator
 
-# ==============================================================================
-# ROW 3: Améliorer PNG (Left) and Verbatim/PDF Document Container (Right)
-# ==============================================================================
+
+# ROW 3: Améliorer PNG and Verbatim/PDF Document Container
+
 col_ameliorer, col_pdf_verbatim = st.columns([1, 1])
 
 # Left Side: Persistent Améliorer Image without the old extra titles
@@ -169,9 +168,9 @@ with col_ameliorer:
 
 # Right Side: PDF displaying directly inside the Verbatim block framework
 with col_pdf_verbatim:
-    st.subheader("💬 Verbatim / Documents")
+    st.subheader("💬 Verbatim")
     if pdf_files:
-        with st.container(border=True): # Gives it a clean frame matching your image look
+        with st.container(border=True):
             show_pdf(pdf_files[0])
     else:
         st.info("ℹ️ Aucun document PDF associé disponible pour cette région.")
